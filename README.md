@@ -2,7 +2,7 @@
 
 ---
 
-# **querySelectorAll() — Complete Condensed Summary (with possible outputs)**
+# **querySelectorAll() — Summary **
 
 ## **What is it?**
 A DOM method that finds **all elements** matching a given **CSS selector string**.
