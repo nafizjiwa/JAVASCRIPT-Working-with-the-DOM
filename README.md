@@ -151,17 +151,6 @@ container.innerHTML = "<ul><li>Cheese</li><li>Tomato</li></ul>";
   </ul>
 </div>
 ```
-
-**Pros:**  
-- Fast and easy for inserting multiple elements at once  
-- Great for building small chunks of markup quickly  
-
-**Cons:**  
-- Replaces existing content  
-- Parses HTML every time (slower for large updates)  
-- **Security risk** if the string contains user‑provided content (XSS)  
-- Use `textContent` instead when inserting plain text
-
 ---
 
 ## **2. createElement()**
@@ -178,16 +167,6 @@ img.alt = "A slice of lasagna on a plate.";
 
 container.appendChild(img);
 ```
-
-**Pros:**  
-- Safe (no HTML parsing)  
-- Ideal for dynamic, interactive UI updates  
-- Lets you set attributes, classes, events, etc.  
-- Works well with user input  
-
-**Cons:**  
-- More verbose when creating many nested elements  
-
 ---
 
 ## **Summary Comparison**
@@ -199,11 +178,6 @@ container.appendChild(img);
 | Speed | Fast for large chunks | Fast for small updates |
 | Control | Low (string-based) | High (node-based) |
 | Replaces existing content | Yes (unless concatenated) | No |
-
----
-
-## **When to use which**
-- **innerHTML** → quick insertion of known, safe markup  
-- **createElement()** → dynamic, interactive, or user-driven content  
-
+|**When to use**|quick insertion|dynamic, user-driven content|
+|||set attributes, classes, events|
 ---
