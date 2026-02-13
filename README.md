@@ -256,8 +256,124 @@ ul.replaceChild(newLi, oldLi);
 ```js
 ul.insertBefore(newLi, ul.children[1]);
 ```
+---
 
-## **Summary Comparison**
+# **Navigator, Window, and Document — Summary**
+
+## **Navigator**
+Represents **browser information**.
+
+### What it gives you:
+- Browser + OS details (`navigator.userAgent`)
+- User’s preferred language (`navigator.language`)
+
+### Examples:
+```js
+navigator.userAgent      // "Mozilla/5.0 … Chrome/128…"
+navigator.language       // "en-US"
+```
+
+**Use it for:** browser environment, UI, features.
+
+---
+
+## **Window**
+Represents the **browser window** itself.  
+It is the **global object** in the browser.
+
+### What it gives you:
+- Window size (`innerWidth`, `innerHeight`)
+- Current URL (`location`)
+- Methods for opening, navigating, timers, etc.
+
+### Examples:
+```js
+window.innerWidth        // width in pixels
+window.location          // URL info object
+location                 // same as window.location
+```
+
+**Use it for:** window info, navigation, timers, global properties.
+
+---
+
+## **Document**
+Represents the **DOM tree** inside the window.
+
+### What it gives you:
+- Selecting elements (`querySelector`, `getElementById`)
+- Creating elements (`createElement`)
+- Reading/modifying content (`textContent`, `innerHTML`)
+- Document structure (`document.children`)
+
+### Example:
+```js
+document.children        // HTMLCollection of top-level nodes
+```
+---
+
+# **Quick Comparison Table**
+
+| Interface | Represents | Common Uses |
+|----------|------------|-------------|
+| **Navigator** | Browser environment | User agent, language |
+| **Window** | Browser window (global object) | Size, URL, navigation, timers |
+| **Document** | The DOM inside the window | Selecting, creating, editing elements |
+
+---
+
+# **setAttribute() — Summary**
+
+## **What it does**
+Adds a **new attribute** or **updates an existing attribute** on an HTML element.
+
+---
+
+## **Syntax**
+```js
+element.setAttribute(attributeName, value);
+```
+
+---
+
+## **Basic Example**
+```html
+<p id="para">I am a paragraph</p>
+```
+```js
+const para = document.getElementById("para");
+para.setAttribute("class", "my-class");
+```
+Result:
+```html
+<p id="para" class="my-class">I am a paragraph</p>
+```
+
+---
+
+## **Updating an Existing Attribute**
+```html
+<div class="my-class"></div>
+```
+```js
+const divEl = document.querySelector(".my-class");
+divEl.setAttribute("class", "example");
+```
+Result:
+```html
+<div class="example"></div>
+```
+
+---
+
+## **Real‑World Uses**
+- Updating an image’s `src` when a user clicks a thumbnail  
+- Adding form validation attributes (`required`, `minlength`)  
+- Setting `data-*` attributes for dynamic UI behavior  
+
+---
+
+## **innerHTML | createElement() - Summary Comparison**
 
 | Feature | innerHTML | createElement() |
 |--------|-----------|------------------|
@@ -270,7 +386,7 @@ ul.insertBefore(newLi, ul.children[1]);
 ||Replaces all HTML and content|set attributes, classes, events|
 ---
 
-# **Quick Comparison Table**
+# **innerText | textContent | innerHTML Quick Comparison Table**
 
 | Feature | innerText | textContent | innerHTML |
 |--------|-----------|-------------|-----------|
