@@ -88,8 +88,6 @@ A **NodeList**, which is an array‑like collection of elements.
 }
 ```
 
----
-
 # **What you can do with the NodeList**
 
 ### **Check how many were found**
@@ -169,6 +167,96 @@ container.appendChild(img);
 ```
 ---
 
+# **Adding & Removing DOM Nodes**
+
+## **1. Adding Nodes — `appendChild()`**
+**What it does:**  
+Adds a node to the **end** of a parent element’s list of children.
+
+**Syntax:**
+```js
+parentNode.appendChild(newNode);
+```
+
+**Example:**
+```js
+const dessertsList = document.getElementById("desserts");
+const li = document.createElement("li");
+li.textContent = "Cookies";
+dessertsList.appendChild(li);
+```
+
+**Result:**  
+A new `<li>` appears at the bottom of the `<ul>`.
+
+---
+
+## **2. Removing Nodes — `removeChild()`**
+**What it does:**  
+Removes a **specific child node** from a parent element.
+
+**Syntax:**
+```js
+parentNode.removeChild(childNode);
+```
+
+**Example:**
+```js
+const sectionEl = document.getElementById("example-section");
+const lastParagraph = document.querySelector("#example-section p:last-of-type");
+sectionEl.removeChild(lastParagraph);
+```
+
+**Result:**  
+The last `<p>` inside the section is removed.
+
+---
+
+# **DOM Node Manipulation — Side‑by‑Side Cheat Sheet**
+
+| Method | What It Does | Syntax | Example |
+|--------|--------------|--------|---------|
+| **appendChild()** | Adds a node to the **end** of a parent’s children | `parent.appendChild(node)` | `list.appendChild(li)` |
+| **prepend()** | Adds a node to the **start** of a parent’s children | `parent.prepend(node)` | `list.prepend(li)` |
+| **remove()** | Removes the node **itself** (no parent needed) | `node.remove()` | `li.remove()` |
+| **removeChild()** | Removes a **specific child** from a parent | `parent.removeChild(child)` | `list.removeChild(li)` |
+| **replaceChild()** | Replaces one child with another | `parent.replaceChild(newNode, oldNode)` | `list.replaceChild(newLi, oldLi)` |
+| **insertBefore()** | Inserts a node **before** a specific child | `parent.insertBefore(newNode, referenceNode)` | `list.insertBefore(li, list.firstChild)` |
+
+---
+
+# **Mini Examples**
+
+### **appendChild()**
+```js
+ul.appendChild(newLi);
+```
+
+### **prepend()**
+```js
+ul.prepend(newLi);
+```
+
+### **remove()**
+```js
+newLi.remove();
+```
+
+### **removeChild()**
+```js
+ul.removeChild(oldLi);
+```
+
+### **replaceChild()**
+```js
+ul.replaceChild(newLi, oldLi);
+```
+
+### **insertBefore()**
+```js
+ul.insertBefore(newLi, ul.children[1]);
+```
+
 ## **Summary Comparison**
 
 | Feature | innerHTML | createElement() |
@@ -181,3 +269,38 @@ container.appendChild(img);
 |**Used for**|quick insertion|dynamic, user-driven content|
 ||Replaces all HTML and content|set attributes, classes, events|
 ---
+
+# **Quick Comparison Table**
+
+| Feature | innerText | textContent | innerHTML |
+|--------|-----------|-------------|-----------|
+| Returns | Visible text only | All text | HTML markup |
+| Includes hidden text | No | Yes | Yes |
+| Triggers reflow | Yes | No | No |
+| Safe for user input | Yes | Yes | **No** |
+| Replaces children when set | Yes | Yes | Yes (parses HTML) |
+| Best use | Visible UI text | Raw text | Insert/read HTML |
+
+---
+# **innerHTML vs createElement()**
+
+| **innerHTML** | **createElement()** |
+|---------------|----------------------|
+| Uses an HTML **string** to generate all nodes at once. | Creates each node **programmatically**, one at a time. |
+| Fast for inserting chunks of markup. | Safer and more controlled for dynamic content. |
+| Risky with user input (XSS). | Safe for user‑generated content. |
+
+---
+# **Setting Attributes, Classes, and Events — Quick Table**
+
+| Action | How You Do It | Example |
+|--------|----------------|---------|
+| **Set an attribute** | Use dot notation or `setAttribute()` | `img.src = "photo.jpg"`<br>`img.setAttribute("alt", "A cat")` |
+| **Add/remove classes** | Use `classList` | `div.classList.add("active")`<br>`div.classList.remove("hidden")` |
+| **Toggle classes** | `classList.toggle()` | `button.classList.toggle("open")` |
+| **Check if a class exists** | `classList.contains()` | `div.classList.contains("error")` |
+| **Add an event listener** | `addEventListener()` | `li.addEventListener("click", () => { ... })` |
+| **Set inline styles** | Modify `.style` | `p.style.color = "red"` |
+
+---
+
