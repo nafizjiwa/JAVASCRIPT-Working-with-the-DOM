@@ -493,6 +493,15 @@ if (document.readyState === "loading") {
   changeImg(); // DOM already loaded
 }
 ```
+# JS Timing Methods **setTimeout()**
+
+| **Method** | **What It Does** | **Syntax & Parameters** | **Cancel Method** | **Detailed Example** |
+|-----------|------------------|--------------------------|--------------------|-----------------------|
+| **`setTimeout()`** | Runs a function **once** after a specified delay. Great for delayed actions, animations, notifications, staged UI changes. | ```js\nsetTimeout(fn, ms);\n``` **fn:** function to run once.  **ms:** delay in milliseconds. | ```js\nclearTimeout(id);\n``` Stops the timeout **before** it executes. | ```js\nconst id = setTimeout(() => {\n  console.log('Runs after 3s');\n}, 3000);\n\n// Cancel before it fires\nclearTimeout(id);\n``` |
+| **`setInterval()`** | Runs a function **repeatedly** at fixed intervals. Useful for clocks, auto‑refreshing data, animations, polling, counters. | ```js\nsetInterval(fn, ms);\n``` **fn:** function to run repeatedly. **ms:** time between runs. | ```js\nclearInterval(id);\n``` Stops the repeating loop. | ```js\nconst id = setInterval(() => {\n  console.log('Every 2s');\n}, 2000);\n\n// Stop after 6 seconds\nsetTimeout(() => clearInterval(id), 6000);\n``` |
+| **Via User Interaction** | Allows users to **cancel** a timeout or interval using buttons, clicks, or other events. Perfect for “Stop Timer,” “Cancel Loading,” or “Pause Animation.” | No special syntax — just call `clearTimeout()` or `clearInterval()` inside an event listener. | Same cancel methods: `clearTimeout(id)` or `clearInterval(id)` depending on what you’re stopping. | ```js\nconst id = setTimeout(() => {\n  console.log('Will run unless canceled');\n}, 5000);\n\n// User cancels it\nbutton.addEventListener('click', () => {\n  clearTimeout(id);\n  console.log('Canceled by user');\n});\n``` |
+
+---
 
 # **Inline Event Handlers vs addEventListener() — Table**
 
