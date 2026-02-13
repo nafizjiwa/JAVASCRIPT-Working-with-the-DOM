@@ -640,6 +640,26 @@ pauseBtn.addEventListener("click", () => animation.pause());
 - WAAPI animations is better to respond to **clicks, scrolls, input, or dynamic logic**.
 ---
 
+# **Open and Close Dialog Elements with JavaScript**
+
+| **Concept** | **Explanation** | **Code Pattern** |
+|-------------|-----------------|------------------|
+|**What are Dialogs?| They let you display info or actions to the user.| — |
+|**How to create Dialogs? | Use the HTML Dialog element| — |
+| **What the `<dialog>` element does** | The `<dialog>` element creates **modal** and **non‑modal** pop‑ups. Modal dialogs block interaction with the rest of the page. Non‑modal dialogs allow the user to keep interacting with the page. | — |
+| **How dialogs are controlled in JavaScript** | Dialogs use three main methods: **`showModal()`** (opens a modal dialog with a backdrop), **`show()`** (opens a non‑modal dialog), and **`close()`** (closes the dialog). Dialogs are typically opened through button clicks and closed using a button inside the dialog. | — |
+| **Common usage patterns & ideal use cases** | Common patterns: `dialog.showModal()`, `dialog.show()`, `dialog.close()`. Dialogs are ideal for confirmations, alerts, forms, and any UI that requires focused user attention. | — |
+| **Dialog element** | Built‑in HTML element for pop‑ups; hidden by default. | ```html\n<dialog id="modal">...</dialog>``` |
+| **Modal dialog** | Blocks interaction with the rest of the page; adds backdrop. | ```dialog.showModal();``` |
+| **Non‑modal dialog** | Allows interaction with the page while open. | ```dialog.show();``` |
+| **Open on page load** | Automatically displays the dialog when script runs. | ```dialog.showModal();``` |
+| **Open via button** | User clicks a button to open the dialog. | ```openBtn.addEventListener('click', () => dialog.showModal());``` |
+| **Open non‑modal via button** | Opens dialog without blocking the page. | ```openBtn.addEventListener('click', () => dialog.show());``` |
+| **Close dialog** | Hides the dialog and removes backdrop. | ```dialog.close();``` |
+| **Close via button inside dialog** | Button inside dialog triggers close. | ```closeBtn.addEventListener('click', () => dialog.close());``` |
+| **Use cases** | Forms, confirmations, alerts, focused user actions. | — |
+
+
 # **Inline Event Handlers vs addEventListener()**
 
 | Feature | **Inline Event Handlers** (`onclick=""`) | **addEventListener()** (Best Practice) |
