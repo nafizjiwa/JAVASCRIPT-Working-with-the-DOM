@@ -129,3 +129,81 @@ const arr = Array.from(matches);
 Whenever you need to **select and manipulate multiple elements at once** based on shared CSS characteristics (tags, classes, attributes, or nested relationships).
 
 ---
+
+# **Creating New DOM Nodes: innerHTML vs. createElement()**
+
+## **1. innerHTML**
+**What it does:**  
+Sets the HTML markup *inside an existing element* using a string. The browser parses the string and creates all necessary nodes.
+
+**Example:**
+```js
+const container = document.getElementById("container");
+container.innerHTML = "<ul><li>Cheese</li><li>Tomato</li></ul>";
+```
+
+**Resulting DOM:**
+```html
+<div id="container">
+  <ul>
+    <li>Cheese</li>
+    <li>Tomato</li>
+  </ul>
+</div>
+```
+
+**Pros:**  
+- Fast and easy for inserting multiple elements at once  
+- Great for building small chunks of markup quickly  
+
+**Cons:**  
+- Replaces existing content  
+- Parses HTML every time (slower for large updates)  
+- **Security risk** if the string contains user‑provided content (XSS)  
+- Use `textContent` instead when inserting plain text
+
+---
+
+## **2. createElement()**
+**What it does:**  
+Creates a **new element node** programmatically, one at a time.
+
+**Example:**
+```js
+const container = document.getElementById("container");
+
+const img = document.createElement("img");
+img.src = "https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg";
+img.alt = "A slice of lasagna on a plate.";
+
+container.appendChild(img);
+```
+
+**Pros:**  
+- Safe (no HTML parsing)  
+- Ideal for dynamic, interactive UI updates  
+- Lets you set attributes, classes, events, etc.  
+- Works well with user input  
+
+**Cons:**  
+- More verbose when creating many nested elements  
+
+---
+
+## **Summary Comparison**
+
+| Feature | innerHTML | createElement() |
+|--------|-----------|------------------|
+| Creates nodes | Yes (via HTML string) | Yes (one element at a time) |
+| Safety | Risky with user input | Safe |
+| Speed | Fast for large chunks | Fast for small updates |
+| Control | Low (string-based) | High (node-based) |
+| Replaces existing content | Yes (unless concatenated) | No |
+
+---
+
+## **When to use which**
+- **innerHTML** → quick insertion of known, safe markup  
+- **createElement()** → dynamic, interactive, or user-driven content  
+
+---
