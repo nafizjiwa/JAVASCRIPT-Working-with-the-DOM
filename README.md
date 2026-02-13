@@ -373,7 +373,7 @@ Result:
 
 ---
 
-# **Event Object — Summary Table**
+# **Event Object — Summary**
 
 | Feature | What It Means | Example / Notes |
 |--------|----------------|-----------------|
@@ -387,7 +387,7 @@ Result:
 
 ---
 
-# **addEventListener() — Summary Table**
+# **addEventListener() — Summary**
 
 | Concept | Summary |
 |--------|---------|
@@ -429,8 +429,58 @@ button.addEventListener("click", () => {
 ```html
 <button onclick="console.log('Clicked!')">Click me</button>
 ```
+---
 
-## **innerHTML | createElement() - Summary Comparison**
+# **removeEventListener() — Summary**
+
+| Concept | Summary |
+|--------|---------|
+| **What it does** | Removes an event listener previously added with `addEventListener()` |
+| **Syntax** | `element.removeEventListener("event", listener)` |
+| **Arguments required** | Same **event type** and **same function reference** used when adding the listener |
+| **Optional 3rd argument** | `options` or `useCapture` (must match what was used when adding) |
+| **When it’s useful** | Stop listening after a condition, closing modals, cleaning up UI, logging out, disabling buttons |
+| **Key rule** | You **must pass the exact same function**, not an anonymous arrow function |
+| **Example** | ```js\nbtn.addEventListener("click", toggleBgColor);\nbtn.removeEventListener("click", toggleBgColor);\n``` |
+| **Real example from lesson** | Hovering a `<p>` triggers removal of the button’s click listener |
+---
+
+# **Manipulate or Change Styles — Summary**
+
+| Feature | `element.style` | `element.classList` |
+|--------|------------------|----------------------|
+| **What it does** | Sets **inline styles** directly on the element | Adds, removes, or toggles **CSS classes** |
+| **Best for** | Quick, one‑off style changes (e.g., `color`, `backgroundColor`) | Applying predefined CSS rules; cleaner, scalable styling |
+| **Syntax** | `element.style.property = value` | `add()`, `remove()`, `toggle()`, `contains()` |
+| **Example** | `para.style.color = "red"` | `para.classList.add("highlight")` |
+| **Multiple changes** | Must set each style individually | Can add/remove multiple classes at once |
+| **Maintainability** | Harder to maintain; mixes JS with styling | Cleaner separation of concerns (CSS handles appearance) |
+| **Dynamic UI use cases** | Temporary visual tweaks | Show/hide menus, active states, animations, themes |
+| **Toggle example** | N/A | `menu.classList.toggle("show")` |
+
+---
+
+# **Ultra‑Short Summary**
+- **`style`** → direct inline styles (e.g., `el.style.color = "red"`).  
+- **`classList`** → add/remove/toggle CSS classes for cleaner, scalable styling.  
+- Use **classList** for almost everything; use **style** for quick one‑off changes.
+
+
+# **Inline Event Handlers vs addEventListener() — Table**
+
+| Feature | **Inline Event Handlers** (`onclick=""`) | **addEventListener()** (Best Practice) |
+|--------|-------------------------------------------|-----------------------------------------|
+| **Where code lives** | Inside the HTML attribute | In your JavaScript file |
+| **Separation of concerns** | ❌ Mixes HTML + JS | ✔ Keeps HTML and JS separate |
+| **Number of listeners allowed** | Only **one** per event | **Multiple** listeners allowed |
+| **Maintainability** | Harder to read, harder to scale | Cleaner, organized, easier to maintain |
+| **Supports advanced options** | ❌ No (`once`, `passive`, `capture`) | ✔ Yes |
+| **Removing listeners** | ❌ Cannot remove easily | ✔ `removeEventListener()` works |
+| **Modern best practice** | ❌ Not recommended | ✔ Recommended |
+| **Example** | `<button onclick="alert('Hi')">` | `btn.addEventListener("click", handler)` |
+
+---
+## **innerHTML | createElement() - Summary**
 
 | Feature | innerHTML | createElement() |
 |--------|-----------|------------------|
