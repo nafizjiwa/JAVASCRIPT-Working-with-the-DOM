@@ -445,26 +445,19 @@ button.addEventListener("click", () => {
 | **Real example from lesson** | Hovering a `<p>` triggers removal of the button’s click listener |
 ---
 
-# **Manipulate or Change Styles — Summary**
+# **Manipulate or Change Styles with `element.style.styleName` | `element.classListadd()` — Summary**
 
 | Feature | `element.style` | `element.classList` |
 |--------|------------------|----------------------|
 | **What it does** | Sets **inline styles** directly on the element | Adds, removes, or toggles **CSS classes** |
-| **Best for** | Quick, one‑off style changes (e.g., `color`, `backgroundColor`) | Applying predefined CSS rules; cleaner, scalable styling |
-| **Syntax** | `element.style.property = value` | `add()`, `remove()`, `toggle()`, `contains()` |
-| **Example** | `para.style.color = "red"` | `para.classList.add("highlight")` |
-| **Multiple changes** | Must set each style individually | Can add/remove multiple classes at once |
-| **Maintainability** | Harder to maintain; mixes JS with styling | Cleaner separation of concerns (CSS handles appearance) |
-| **Dynamic UI use cases** | Temporary visual tweaks | Show/hide menus, active states, animations, themes |
+| **Best for** | Quick, one‑off visual changes | Applying reusable CSS rules |
+| **Syntax** | `element.style.property = value` | `classList.add()`, `remove()`, `toggle()`, `contains()` |
+| **Direct style example** | `el.style.backgroundColor = "red"` | N/A |
+| **Multiple changes** | Must set each property individually | Add multiple classes at once: `el.classList.add("a", "b", "c")` |
+| **Maintainability** | Harder to maintain; mixes JS + styling | Cleaner separation (CSS handles appearance) |
+| **Dynamic UI use cases** | Temporary tweaks (e.g., hide/show quickly) | Menus, themes, animations, active states |
 | **Toggle example** | N/A | `menu.classList.toggle("show")` |
-
 ---
-
-# **Ultra‑Short Summary**
-- **`style`** → direct inline styles (e.g., `el.style.color = "red"`).  
-- **`classList`** → add/remove/toggle CSS classes for cleaner, scalable styling.  
-- Use **classList** for almost everything; use **style** for quick one‑off changes.
-
 
 # **Inline Event Handlers vs addEventListener() — Table**
 
