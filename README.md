@@ -2,7 +2,7 @@
 
 ---
 
-# **querySelectorAll() — Summary **
+# **querySelectorAll() **
 
 ## **What is it?**
 A DOM method that finds **all elements** matching a given **CSS selector string**.
@@ -126,11 +126,11 @@ const arr = Array.from(matches);
 ---
 
 ## **When should you use it?**
-Whenever you need to **select and manipulate multiple elements at once** based on shared CSS characteristics (tags, classes, attributes, or nested relationships).
+**select and manipulate multiple elements at once on (tags, classes, attributes, or nested relationships)**.
 
 ---
 
-# **Creating New DOM Nodes: innerHTML vs. createElement()**
+# **Creating New DOM Nodes: innerHTML or createElement()**
 
 ## **1. innerHTML**
 **What it does:**  
@@ -178,6 +178,6 @@ container.appendChild(img);
 | Speed | Fast for large chunks | Fast for small updates |
 | Control | Low (string-based) | High (node-based) |
 | Replaces existing content | Yes (unless concatenated) | No |
-|**When to use**|quick insertion|dynamic, user-driven content|
-|||set attributes, classes, events|
+|**Used for**|quick insertion|dynamic, user-driven content|
+||Replaces all HTML and content|set attributes, classes, events|
 ---
