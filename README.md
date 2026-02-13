@@ -494,13 +494,76 @@ if (document.readyState === "loading") {
 }
 ```
 # JS **setTimeout() setInerval()** TIMING METHODS
+- Both take 2 parmeters
+  - A function
+  - The delay in time
+- id is a unique number returned by setTimeout() & setInterval()
+  - id identifies **that specific timer**.
+  - Store in a variable **So that timer can be cancelled later**.
+
 
 | **Method** | **What It Does** | **Syntax & Parameters** | **Cancel Method** | **Detailed Example** |
 |-----------|------------------|--------------------------|--------------------|-----------------------|
-| **`setTimeout()`** | Runs a function **once** after a specified delay. Great for delayed actions, animations, notifications, staged UI changes. | ```js\nsetTimeout(fn, ms);\n``` **fn:** function to run once.  **ms:** delay in milliseconds. | ```js\nclearTimeout(id);\n``` Stops the timeout **before** it executes. | ```js\nconst id = setTimeout(() => {\n  console.log('Runs after 3s');\n}, 3000);\n\n// Cancel before it fires\nclearTimeout(id);\n``` |
-| **`setInterval()`** | Runs a function **repeatedly** at fixed intervals. Useful for clocks, auto‑refreshing data, animations, polling, counters. | ```js\nsetInterval(fn, ms);\n``` **fn:** function to run repeatedly. **ms:** time between runs. | ```js\nclearInterval(id);\n``` Stops the repeating loop. | ```js\nconst id = setInterval(() => {\n  console.log('Every 2s');\n}, 2000);\n\n// Stop after 6 seconds\nsetTimeout(() => clearInterval(id), 6000);\n``` |
-| **Via User Interaction** | Allows users to **cancel** a timeout or interval using buttons, clicks, or other events. Perfect for “Stop Timer,” “Cancel Loading,” or “Pause Animation.” | No special syntax — just call `clearTimeout()` or `clearInterval()` inside an event listener. | Same cancel methods: `clearTimeout(id)` or `clearInterval(id)` depending on what you’re stopping. | ```js\nconst id = setTimeout(() => {\n  console.log('Will run unless canceled');\n}, 5000);\n\n// User cancels it\nbutton.addEventListener('click', () => {\n  clearTimeout(id);\n  console.log('Canceled by user');\n});\n``` |
+| **`const timeout Id = setTimeout(fn, delay time)`** | Runs a function **once** after a specified delay. Great for delayed actions, animations, notifications, staged UI changes. | ``` **fn:** function to run once.  **delay time:** in milliseconds. | ```clearTimeout(id);\n``` Stops the timeout **before** it executes. | ```const id = setTimeout(() => {  console.log('Runs after 3s');\n}, 3000);\n\n// Cancel before it fires\nclearTimeout(id);\n``` |
+| **`const intervalID = setInterval()`** | Runs a function **repeatedly** at fixed intervals. Useful for clocks, auto‑refreshing data, animations, polling, counters. | ```setInterval(fn, delay time);\n``` **fn:** function to run repeatedly. **delay time:** between runs in ms. | ```clearInterval(id);\n``` Stops the repeating loop. | ```const id = setInterval(() => {\n  console.log('Every 2s');\n}, 2000);\n\n// Stop after 6 seconds\nsetTimeout(() => clearInterval(id), 6000);\n``` |
+| **Via User Interaction** | Allows users to **cancel** a timeout or interval using buttons, clicks, or other events. Perfect for “Stop Timer,” “Cancel Loading,” or “Pause Animation.” | No special syntax — just call `clearTimeout()` or `clearInterval()` inside an event listener. | Same cancel methods: `clearTimeout(id)` or `clearInterval(id)` depending on what you’re stopping. | ```const id = setTimeout(() => {\n  console.log('Will run unless canceled');\n}, 5000);\n\n// User cancels it\nbutton.addEventListener('click', () => {\n  clearTimeout(id);\n  console.log('Canceled by user');\n});\n``` |
+---
 
+# **`requestAnimationFrame()` to set up Animation Loops**
+
+## **What `requestAnimationFrame()` Does**
+- Schedules your animation code to run **right before the browser’s next repaint**.
+---
+
+## **Basic Usage**
+You pass a callback function that represents **one frame** of your animation:
+
+```js
+requestAnimationFrame(callback);
+```
+
+---
+
+## **Setting Up an Animation Loop**
+You create two functions:
+
+### **1. `update()`**
+- Changes the animation state (position, style, rotation, etc.).
+
+### **2. `animate()`**
+- Calls `update()`
+- Requests the next animation frame
+
+```js
+function update() {
+  element.style.transform = `translateX(${position}px)`;
+  position += 2;
+}
+
+function animate() {
+  update();
+  requestAnimationFrame(animate); // loop
+}
+```
+
+To Start the loop:
+
+```js
+requestAnimationFrame(animate);
+```
+
+The loop continues until you stop calling `requestAnimationFrame()`.
+
+---
+
+## **Example Behavior**
+- A rectangle moves 2px to the right every frame.
+- When it exits the screen, its position resets to the left side.
+
+---
+
+## **Why Use `requestAnimationFrame()` Instead of `setInterval()`**
+- Smoother animations (syncs with screen refresh rate).
 ---
 
 # **Inline Event Handlers vs addEventListener() — Table**
