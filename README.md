@@ -633,7 +633,6 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | Harder to control at runtime | Easy to pause, play, reverse, change speed |
 | Triggered by classes, states, or events | Controlled directly through JS methods |
 | Best for hover effects, loops, transitions | Best for user‑driven or complex animations |
-
 ---
 
 ## **How They Relate**
@@ -641,7 +640,7 @@ pauseBtn.addEventListener("click", () => animation.pause());
 - WAAPI animations is better to respond to **clicks, scrolls, input, or dynamic logic**.
 ---
 
-# **Inline Event Handlers vs addEventListener() — Table**
+# **Inline Event Handlers vs addEventListener()**
 
 | Feature | **Inline Event Handlers** (`onclick=""`) | **addEventListener()** (Best Practice) |
 |--------|-------------------------------------------|-----------------------------------------|
@@ -653,9 +652,29 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **Removing listeners** | ❌ Cannot remove easily | ✔ `removeEventListener()` works |
 | **Modern best practice** | ❌ Not recommended | ✔ Recommended |
 | **Example** | `<button onclick="alert('Hi')">` | `btn.addEventListener("click", handler)` |
-
 ---
-## **innerHTML | createElement() - Summary**
+
+
+# **Canvas API**
+
+| **Concept** | **Explanation** | **Example Pattern** |
+|-------------|-----------------|----------------------|
+| **What the Canvas API is** | A JavaScript API for drawing text --> games a `<canvas>` element. | — |
+| **How to setup** | Add a canvas html element in element set Width/height or JS. | ```html\n<canvas id="my-canvas" width="400" height="400"></canvas>``` |
+| **Get the canvas + context** | Access the element, then get its **2D drawing context**. | ```const canvas = document.getElementById('my-canvas');\nconst ctx = canvas.getContext('2d');``` |
+| **What context/ctx is** | `CanvasRenderingContext2D` object contains all drawing methods (colors, shapes, text, lines). | — |
+| **Draw a filled rectangle** | Use `fillStyle` to set color, then `fillRect()` to draw. | ```ctx.fillStyle = 'crimson';\nctx.fillRect(1, 1, 150, 100);``` |
+| **Draw text** | Set font + color, then draw text at an (x, y) position. | ```ctx.font = '30px Arial';\nctx.fillStyle = 'crimson';\nctx.fillText('Hello HTML Canvas!', 1, 50);``` |
+| **Coordinates** | Canvas uses an (x, y) grid starting at the **top‑left corner**. | — |
+| **Animation capability** | Combine Canvas drawing with `requestAnimationFrame()` for smooth custom animations. | ```function animate() {\n  update();\n  requestAnimationFrame(animate);\n}``` |
+| **Canvas lets you build** | Shapes, charts, visual effects, particle systems, games, interactive graphics. | — |
+|**Key Interfaces**|Purpose|
+|**HTMLCanvasElement**| → the canvas element  |
+|**CanvasRenderingContext2D** |→ drawing methods |
+|**CanvasGradient**, **CanvasPattern**, **TextMetrics**| → advanced graphics tools  |
+---
+
+## **innerHTML | createElement() **
 
 | Feature | innerHTML | createElement() |
 |--------|-----------|------------------|
@@ -668,7 +687,7 @@ pauseBtn.addEventListener("click", () => animation.pause());
 ||Replaces all HTML and content|set attributes, classes, events|
 ---
 
-# **innerText | textContent | innerHTML Quick Comparison Table**
+# **innerText | textContent | innerHTML ** COMPARISON
 
 | Feature | innerText | textContent | innerHTML |
 |--------|-----------|-------------|-----------|
@@ -689,7 +708,7 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | Risky with user input (XSS). | Safe for user‑generated content. |
 
 ---
-# **Setting Attributes, Classes, and Events — Quick Table**
+# **Setting Attributes, Classes, and Events**
 
 | Action | How You Do It | Example |
 |--------|----------------|---------|
