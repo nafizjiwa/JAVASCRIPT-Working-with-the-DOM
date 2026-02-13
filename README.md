@@ -402,6 +402,33 @@ Result:
 
 ---
 
+# **addEventListener() vs Inline Event Handlers — Condensed Table**
+
+| Feature | `addEventListener()` | Inline Event Handler (`onclick=`) |
+|--------|------------------------|-----------------------------------|
+| **Where the code lives** | In your JS file | Inside the HTML tag |
+| **Syntax** | `element.addEventListener("click", handler)` | `<button onclick="handler()">` |
+| **Separation of concerns** | ✔ Keeps HTML clean and JS separate | ✘ Mixes HTML and JS |
+| **Multiple listeners** | ✔ Can attach many listeners to the same event | ✘ Only one handler allowed per event |
+| **Easier to remove** | ✔ `element.removeEventListener(...)` | ✘ Harder to remove or manage |
+| **Supports advanced options** | ✔ `{ once: true }`, capture, passive, etc. | ✘ No advanced options |
+| **Recommended?** | ✔ Yes — modern best practice | ✘ Only for quick demos or legacy code |
+
+---
+
+# **Mini Examples**
+
+### **addEventListener()**
+```js
+button.addEventListener("click", () => {
+  console.log("Clicked!");
+});
+```
+
+### **Inline handler**
+```html
+<button onclick="console.log('Clicked!')">Click me</button>
+```
 
 ## **innerHTML | createElement() - Summary Comparison**
 
