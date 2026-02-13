@@ -566,6 +566,81 @@ The loop continues until you stop calling `requestAnimationFrame()`.
 - Smoother animations (syncs with screen refresh rate).
 ---
 
+# **eb Animations API (WAAPI)**
+
+## **What WAAPI Is**
+- **Web Animations API** To create and control animations **in JavaScript**.  
+
+---
+
+## **How It Works**
+You animate an element using:
+
+```js
+element.animate(keyframes, options);
+- **keyframes** → list of style changes over time  
+- **options** → duration, easing, direction, iterations, etc.
+```
+Example:
+```js
+const animation = element.animate(
+  [{ transform: "translateX(0)" }, { transform: "translateX(100px)" }],
+  { duration: 2000, iterations: Infinity, direction: "alternate" }
+);
+```
+## **Animation Object Controls**
+The `.animate()` method returns an **Animation object** containing animation controls:
+
+### **Instance Methods**
+- `play()`
+- `pause()`
+- `reverse()`
+- `finish()`
+- `cancel()`
+
+### **Instance Properties**
+- `playState`
+- `currentTime`
+- `playbackRate`
+- `startTime`
+- `effect`
+- `timeline`
+- `finished`
+- `onfinish`
+- `oncancel`
+
+** These allow you to animation events**.
+---
+
+## **Example: Play / Pause**
+```js
+const animation = square.animate([...], { duration: 5000 });
+
+animation.onfinish = () => console.log("Animation finished!");
+
+playBtn.addEventListener("click", () => animation.play());
+pauseBtn.addEventListener("click", () => animation.pause());
+```
+
+---
+
+# **WAAPI vs CSS Animations**
+
+| **CSS Animations** | **WAAPI (JavaScript)** |
+|--------------------|------------------------|
+| Declarative (defined in CSS) | Imperative (controlled in JS) |
+| Great for simple, automatic animations | Great for interactive, dynamic animations |
+| Harder to control at runtime | Easy to pause, play, reverse, change speed |
+| Triggered by classes, states, or events | Controlled directly through JS methods |
+| Best for hover effects, loops, transitions | Best for user‑driven or complex animations |
+
+---
+
+## **How They Relate**
+- WAAPI can **do CSS animations**, but with **more run time control**.
+- WAAPI animations is better to respond to **clicks, scrolls, input, or dynamic logic**.
+---
+
 # **Inline Event Handlers vs addEventListener() — Table**
 
 | Feature | **Inline Event Handlers** (`onclick=""`) | **addEventListener()** (Best Practice) |
