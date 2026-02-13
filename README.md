@@ -373,6 +373,36 @@ Result:
 
 ---
 
+# **Event Object — Summary Table**
+
+| Feature | What It Means | Example / Notes |
+|--------|----------------|-----------------|
+| **What it is** | A payload created when the user interacts with the page | Clicks, key presses, form submits, device motion |
+| **`type`** | The kind of event that occurred | `"click"`, `"keydown"`, `"submit"` |
+| **`target`** | The element (or object) that triggered the event | Usually an HTMLElement, but could be `document`, `window`, or others |
+| **`preventDefault()`** | Stops the browser’s default behavior | Prevent form submission, stop link navigation |
+| **`stopPropagation()`** | Stops the event from bubbling to parent elements | Useful in nested click handlers |
+| **Event‑specific properties** | Extra data depending on event type | Example: `FetchEvent.request`, `KeyboardEvent.key`, `MouseEvent.clientX` |
+| **How to inspect it** | Log the event to see all available properties | `console.log(event)` |
+
+---
+
+# **addEventListener() — Summary Table**
+
+| Concept | Summary |
+|--------|---------|
+| **What it does** | Listens for an event on an element and runs a function when the event happens |
+| **Syntax** | `element.addEventListener("event", listener)` |
+| **Event types** | `"click"`, `"input"`, `"keydown"`, `"submit"`, etc. |
+| **Listener** | A function (or object with `handleEvent()`) that runs when the event fires |
+| **Inline example** | `btn.addEventListener("click", () => alert("Clicked"))` |
+| **Function reference example** | `element.addEventListener("click", handleClick)` |
+| **Input example** | `input.addEventListener("input", () => console.log(input.value))` |
+| **Where it’s used** | Buttons, forms, inputs, mouse events, keyboard events, UI interactions |
+
+---
+
+
 ## **innerHTML | createElement() - Summary Comparison**
 
 | Feature | innerHTML | createElement() |
