@@ -445,7 +445,7 @@ button.addEventListener("click", () => {
 | **Real example from lesson** | Hovering a `<p>` triggers removal of the button’s click listener |
 ---
 
-# **Manipulate or Change Styles with `element.style.styleName` | `element.classListadd()` — Summary**
+# **Manipulate or Change Styles with `element.style.styleName` | `element.classListadd()`**
 
 | Feature | `element.style` | `element.classList` |
 |--------|------------------|----------------------|
@@ -459,7 +459,7 @@ button.addEventListener("click", () => {
 | **Toggle example** | N/A | `menu.classList.toggle("show")` |
 ---
 
-# **DOMContentLoaded — Summary**
+# **DOMContentLoaded**
 
 ## **What It Is**
 - Fires when the **HTML** is fully loaded and parsed**.
@@ -493,7 +493,7 @@ if (document.readyState === "loading") {
   changeImg(); // DOM already loaded
 }
 ```
-# JS Timing Methods **setTimeout()**
+# JS **setTimeout() setInerval()** TIMING METHODS
 
 | **Method** | **What It Does** | **Syntax & Parameters** | **Cancel Method** | **Detailed Example** |
 |-----------|------------------|--------------------------|--------------------|-----------------------|
