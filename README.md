@@ -459,6 +459,41 @@ button.addEventListener("click", () => {
 | **Toggle example** | N/A | `menu.classList.toggle("show")` |
 ---
 
+# **DOMContentLoaded — Summary**
+
+## **What It Is**
+- Fires when the **HTML** is fully loaded and parsed**.
+- **Does NOT wait** for images, stylesheets, or external resources.
+- So Happens **before** the `load` event.
+- Great for early DOM manipulation.
+
+---
+
+# **Why It’s Useful**
+- Lets you run JavaScript **as soon as the DOM is ready**.
+---
+
+# **Basic Syntax**
+```js
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM is loaded");
+});
+```
+# **Example: Change Image After DOM Loads**
+```js
+function changeImg() {
+  const img = document.getElementById("example-img");
+  img.src = "new-image.jpg";
+  img.alt = "New alt text";
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", changeImg);
+} else {
+  changeImg(); // DOM already loaded
+}
+```
+
 # **Inline Event Handlers vs addEventListener() — Table**
 
 | Feature | **Inline Event Handlers** (`onclick=""`) | **addEventListener()** (Best Practice) |
