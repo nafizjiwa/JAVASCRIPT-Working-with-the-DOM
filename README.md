@@ -116,25 +116,15 @@ matches.forEach(el => {
 const arr = Array.from(matches);
 ```
 
----
-
-## **When should you use it?**
-**select and manipulate multiple elements at once on (tags, classes, attributes, or nested relationships)**.
-
----
-
-# **Creating New DOM Nodes: innerHTML or createElement()**
+# **How to create New DOM Nodes ⟹ innerHTML or createElement()**
 
 ## **1. innerHTML**
-**What it does:**  
-Sets the HTML markup *inside an existing element* using a string. The browser parses the string and creates all necessary nodes.
-
+**Use to** set the HTML markup *inside an existing element* using a string.
 **Example:**
 ```js
 const container = document.getElementById("container");
 container.innerHTML = "<ul><li>Cheese</li><li>Tomato</li></ul>";
 ```
-
 **Resulting DOM:**
 ```html
 <div id="container">
@@ -147,8 +137,7 @@ container.innerHTML = "<ul><li>Cheese</li><li>Tomato</li></ul>";
 ---
 
 ## **2. createElement()**
-**What it does:**  
-Creates a **new element node** programmatically, one at a time.
+**Creates a new element node,** one at a time.
 
 **Example:**
 ```js
@@ -160,19 +149,15 @@ img.alt = "A slice of lasagna on a plate.";
 
 container.appendChild(img);
 ```
----
+# **ADDING & REMOVING DOM NODES FROM PARENTS**
 
-# **Adding & Removing DOM Nodes**
-
-## **1. Adding Nodes — `appendChild()`**
-**What it does:**  
-Adds a node to the **end** of a parent element’s list of children.
+## **1. ADDING Nodes — `appendChild()`**
+**Adds a node to the end** of list of children.
 
 **Syntax:**
 ```js
 parentNode.appendChild(newNode);
 ```
-
 **Example:**
 ```js
 const dessertsList = document.getElementById("desserts");
@@ -180,20 +165,15 @@ const li = document.createElement("li");
 li.textContent = "Cookies";
 dessertsList.appendChild(li);
 ```
-
 **Result:**  
 A new `<li>` appears at the bottom of the `<ul>`.
-
 ---
 
-## **2. Removing Nodes — `removeChild()`**
-**What it does:**  
-Removes a **specific child node** from a parent element.
+## **2. REMOVING Nodes — `removeChild()`**
+**Removes a specific child node**.
 
 **Syntax:**
-```js
-parentNode.removeChild(childNode);
-```
+```js parentNode.removeChild(childNode); ```
 
 **Example:**
 ```js
@@ -207,7 +187,7 @@ The last `<p>` inside the section is removed.
 
 ---
 
-# **DOM Node Manipulation — Side‑by‑Side Cheat Sheet**
+# **DOM Node Manipulation**
 
 | Method | What It Does | Syntax | Example |
 |--------|--------------|--------|---------|
