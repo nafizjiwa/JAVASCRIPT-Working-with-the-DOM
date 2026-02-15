@@ -2,22 +2,18 @@
 
 ---
 
-# **querySelectorAll() **
-
-## **What is it?**
-A DOM method that finds **all elements** matching a given **CSS selector string**.
+# **.querySelectorAll(string) **
+A DOM method to find **all elements** matching a **CSS selector string**.
 
 ## **What is it called on?**
 - `document.querySelectorAll()` → searches the **entire page**  
 - `element.querySelectorAll()` → searches **only inside that element**
-
 ---
 
-## **How to use it**
+#### **Example**
 ```js
 const matches = document.querySelectorAll("selector");
 ```
-
 ### **Complex selector example**
 ```js
 document.querySelectorAll("ul.ingredients li");
@@ -26,11 +22,9 @@ Selects all `<li>` elements inside a `<ul>` with class `"ingredients"`.
 
 ---
 
-# **What it returns**
+# **RETURNS** A **NodeList**, which is an array‑like collection of elements.
 
-A **NodeList**, which is an array‑like collection of elements.
-
-### **Possible outputs depending on the page**
+### **OUTPUTS are based on the page**
 
 ### **1. Multiple matches**
 ```js
