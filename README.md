@@ -26,12 +26,7 @@ Selects all `<li>` elements inside a `<ul>` with class `"ingredients"`.
 
 ---
 
-## **Errors**
-Throws a **SyntaxError** if the selector string is invalid.
-
----
-
-# **What it returns (NodeList)**
+# **What it returns**
 
 A **NodeList**, which is an array‑like collection of elements.
 
