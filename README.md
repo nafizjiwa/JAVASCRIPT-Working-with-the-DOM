@@ -173,7 +173,9 @@ A new `<li>` appears at the bottom of the `<ul>`.
 **Removes a specific child node**.
 
 **Syntax:**
-```js parentNode.removeChild(childNode); ```
+```js
+parentNode.removeChild(childNode);
+ ```
 
 **Example:**
 ```js
@@ -181,10 +183,8 @@ const sectionEl = document.getElementById("example-section");
 const lastParagraph = document.querySelector("#example-section p:last-of-type");
 sectionEl.removeChild(lastParagraph);
 ```
-
 **Result:**  
 The last `<p>` inside the section is removed.
-
 ---
 
 # **DOM Node Manipulation**
@@ -200,66 +200,18 @@ The last `<p>` inside the section is removed.
 
 ---
 
-# **Mini Examples**
-
-### **appendChild()**
-```js
-ul.appendChild(newLi);
-```
-
-### **prepend()**
-```js
-ul.prepend(newLi);
-```
-
-### **remove()**
-```js
-newLi.remove();
-```
-
-### **removeChild()**
-```js
-ul.removeChild(oldLi);
-```
-
-### **replaceChild()**
-```js
-ul.replaceChild(newLi, oldLi);
-```
-
-### **insertBefore()**
-```js
-ul.insertBefore(newLi, ul.children[1]);
-```
----
-
-# **Navigator, Window, and Document — Summary**
+# **Navigator, Window, and Document**
 
 ## **Navigator**
-Represents **browser information**.
-
-### What it gives you:
-- Browser + OS details (`navigator.userAgent`)
-- User’s preferred language (`navigator.language`)
+Gives informaton about **browser and device**.
 
 ### Examples:
 ```js
-navigator.userAgent      // "Mozilla/5.0 … Chrome/128…"
-navigator.language       // "en-US"
+navigator.userAgent  // "Mozilla/5.0 … Chrome/128…" **Browser + OS details**
+navigator.language  // "en-US" **User’s language**
 ```
-
-**Use it for:** browser environment, UI, features.
-
----
-
-## **Window**
-Represents the **browser window** itself.  
-It is the **global object** in the browser.
-
-### What it gives you:
-- Window size (`innerWidth`, `innerHeight`)
-- Current URL (`location`)
-- Methods for opening, navigating, timers, etc.
+## **Window -top level global object**
+Gives info about the **browser window**.  
 
 ### Examples:
 ```js
@@ -267,51 +219,35 @@ window.innerWidth        // width in pixels
 window.location          // URL info object
 location                 // same as window.location
 ```
-
-**Use it for:** window info, navigation, timers, global properties.
-
----
-
-## **Document**
-Represents the **DOM tree** inside the window.
-
-### What it gives you:
-- Selecting elements (`querySelector`, `getElementById`)
-- Creating elements (`createElement`)
-- Reading/modifying content (`textContent`, `innerHTML`)
-- Document structure (`document.children`)
+## **Document DOM the webpage within the window**
 
 ### Example:
 ```js
 document.children        // HTMLCollection of top-level nodes
 ```
----
-
-# **Quick Comparison Table**
-
+# **Compare**
 | Interface | Represents | Common Uses |
 |----------|------------|-------------|
 | **Navigator** | Browser environment | User agent, language |
 | **Window** | Browser window (global object) | Size, URL, navigation, timers |
+||Window size|(`innerWidth`, `innerHeight`)|
+||Current URL|(`location`)|
+||Methods for|opening, navigating, timers, etc.|
 | **Document** | The DOM inside the window | Selecting, creating, editing elements |
-
+||Document structure |(`document.children`)|
+||Reading/modifying content |(`textContent`, `innerHTML`)|
+||Creating elements|(`createElement`)|
+||Selecting elements|(`querySelector`, `getElementById`)|
 ---
 
-# **setAttribute() — Summary**
-
-## **What it does**
-Adds a **new attribute** or **updates an existing attribute** on an HTML element.
-
+# **setAttribute()**
+Adds or updates a **new or existing attribute** on an HTML element.
 ---
-
 ## **Syntax**
 ```js
 element.setAttribute(attributeName, value);
 ```
-
----
-
-## **Basic Example**
+## **ADD Example**
 ```html
 <p id="para">I am a paragraph</p>
 ```
@@ -323,10 +259,7 @@ Result:
 ```html
 <p id="para" class="my-class">I am a paragraph</p>
 ```
-
----
-
-## **Updating an Existing Attribute**
+## **Update Example**
 ```html
 <div class="my-class"></div>
 ```
@@ -338,17 +271,13 @@ Result:
 ```html
 <div class="example"></div>
 ```
-
----
-
 ## **Real‑World Uses**
 - Updating an image’s `src` when a user clicks a thumbnail  
 - Adding form validation attributes (`required`, `minlength`)  
 - Setting `data-*` attributes for dynamic UI behavior  
-
 ---
 
-# **Event Object — Summary**
+# **Event Object**
 
 | Feature | What It Means | Example / Notes |
 |--------|----------------|-----------------|
@@ -362,7 +291,7 @@ Result:
 
 ---
 
-# **addEventListener() — Summary**
+# **addEventListener()**
 
 | Concept | Summary |
 |--------|---------|
