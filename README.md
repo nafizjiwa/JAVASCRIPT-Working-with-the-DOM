@@ -275,14 +275,17 @@ Result:
 
 | Feature | What It Means | Example / Notes |
 |--------|----------------|-----------------|
-| **What it is** | A payload created when the user interacts with the page | Clicks, key presses, form submits, device motion |
-| **`type`** | The kind of event that occurred | `"click"`, `"keydown"`, `"submit"` |
-| **`target`** | The element (or object) that triggered the event | Usually an HTMLElement, but could be `document`, `window`, or others |
-| **`preventDefault()`** | Stops the browser’s default behavior | Prevent form submission, stop link navigation |
-| **`stopPropagation()`** | Stops the event from bubbling to parent elements | Useful in nested click handlers |
+| **What it is** | Information about the interaction with the page | Events(e): Clicks, key presses, form submits, device motion |
+| **`e.type`** | The kind of event that occurred | `"click"`, `"keydown"`, `"submit"` |
+|**`event.currentTarget`**|element the listener is attached to||
+| **`e.target`** | The element (or object) that triggered the event | Usually an HTMLElement, but could be `document`, `window`|
+| **`e.preventDefault()`** | Stops the browser’s default behavior | Prevent form submission, stop link navigation |
+| **`e.stopPropagation()`** | Stops the event from bubbling to parent elements | Useful in nested click handlers |
 | **Event‑specific properties** | Extra data depending on event type | Example: `FetchEvent.request`, `KeyboardEvent.key`, `MouseEvent.clientX` |
 | **How to inspect it** | Log the event to see all available properties | `console.log(event)` |
-
+|Extra properties| InputEvent |→ typing info|
+|Extra properties| MouseEvent |→ mouse position, buttons|
+|Extra properties| SubmitEvent |→ form submission details|
 ---
 
 # **addEventListener()**
@@ -451,7 +454,6 @@ requestAnimationFrame(animate);
 ```
 
 The loop continues until you stop calling `requestAnimationFrame()`.
-
 ---
 
 ## **Example Behavior**
@@ -521,7 +523,6 @@ pauseBtn.addEventListener("click", () => animation.pause());
 ```
 
 ---
-
 # **WAAPI vs CSS Animations**
 
 | **CSS Animations** | **WAAPI (JavaScript)** |
