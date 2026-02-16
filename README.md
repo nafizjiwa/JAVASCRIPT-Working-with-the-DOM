@@ -219,7 +219,7 @@ location                 // same as window.location
 ```js
 document.children        // HTMLCollection of top-level nodes
 ```
-# **Compare**
+# **Compare Navigator, Window, and Document**
 | Interface | Represents | Common Uses |
 |----------|------------|-------------|
 | **Navigator** | Browser environment | User agent, language |
@@ -287,6 +287,42 @@ Result:
 |Extra properties| MouseEvent |→ mouse position, buttons|
 |Extra properties| SubmitEvent |→ form submission details|
 ---
+
+# ⭐ **Event Bubbling & Event Delegation**
+
+## **Event Bubbling**
+- When an event happens on an element, it **first runs on that element**, then **bubbles up** through its parent elements.
+- Example: clicking a `<span>` inside a `<p>`:
+  - The `<span>`’s listener fires  
+  - Then the `<p>`’s listener fires  
+- `event.target` always refers to the **original element clicked**, even when the parent handles the event.
+- Bubbling can be stopped with:
+  ```js
+  event.stopPropagation();
+  ```
+
+---
+
+## **Event Delegation**
+- Instead of adding listeners to many child elements, you add **one listener to a parent** and let bubbling deliver events to it.
+- The parent checks `event.target` to determine which child was clicked.
+- Useful when:
+  - You have many similar child elements  
+  - Child elements are created dynamically  
+- Example:
+  ```js
+  p.addEventListener("click", (event) => {
+    event.target.style.color = "red";
+  });
+  ```
+  This single listener handles clicks for **all** `<span>` elements inside `<p>`.
+
+---
+
+# ⭐ **One‑Line Summary**
+**Bubbling** = events travel upward through ancestors.  
+**Delegation** = use one parent listener to handle events from many children.
+
 
 # **addEventListener()**
 
