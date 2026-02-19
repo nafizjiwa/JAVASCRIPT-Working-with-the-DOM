@@ -676,3 +676,44 @@ pauseBtn.addEventListener("click", () => animation.pause());
 
 ---
 
+# **DOM Manipulation, Web APIs + Event Handling Table**
+
+| **Topic** | **Condensed Explanation** | **Example** | **Example Explanation** |
+|----------|----------------------------|-------------|--------------------------|
+| **API** | Rules that let software communicate. | `fetch("https://api.com")` | Calls an external API to request data from a server. |
+| **Web APIs** | APIs used in web development. | `document.querySelector("p")` | Uses a built‑in browser API to select a paragraph element. |
+| **Browser APIs** | Built into the browser (DOM, window, navigator). | `localStorage.setItem("theme", "dark")` | Stores data in the browser using a built‑in API. |
+| **Third‑Party APIs** | External services you load separately. | Google Maps API | Loads map features that are not built into the browser. |
+| **DOM** | Tree structure of the webpage; JS can modify it. | `document.body.style.background = "black"` | Changes the background color of the page by modifying the DOM. |
+| **DOM Structure Terms** | Root, parent, child relationships. | `<ul>` → `<li>` | The `<ul>` is the parent and each `<li>` is a child element. |
+| **navigator** | Info about browser/device. | `navigator.userAgent` | Returns a string describing the browser and operating system. |
+| **window** | Represents the browser window. | `window.open("https://example.com")` | Opens a new browser tab or window. |
+| **getElementById()** | Selects one element by its unique ID. | `document.getElementById("header")` | Selects the element whose id is `"header"` in the DOM. |
+| **querySelector()** | Selects the first matching element. | `document.querySelector("#apple")` | Selects the **first** element in the DOM with the id `"apple"`. |
+| **querySelectorAll()** | Selects all matching elements. | `document.querySelectorAll("li")` | Selects **every** `<li>` element in the DOM. |
+| **innerHTML** | Inserts or replaces HTML markup. | `div.innerHTML = "<p>Hello</p>"` | Replaces the inside of `div` with a new `<p>` element. |
+| **innerText** | Returns visible text only. | `div.innerText` | Returns only the text the user can see inside the element. |
+| **textContent** | Returns all text, even hidden. | `div.textContent` | Returns all text inside the element, including hidden text. |
+| **createElement()** | Creates a new HTML element. | `document.createElement("img")` | Creates a new `<img>` element in memory (not yet on the page). |
+| **appendChild()** | Adds a node as the last child. | `list.appendChild(item)` | Adds `item` to the end of the list in the DOM. |
+| **removeChild()** | Removes a specific child node. | `parent.removeChild(child)` | Removes the `child` element from its parent in the DOM. |
+| **setAttribute()** | Adds or updates an attribute. | `img.setAttribute("src", "photo.jpg")` | Sets the `src` attribute of the `<img>` to `"photo.jpg"`. |
+| **Event Object** | Every interaction creates an Event object with details like `type` and `target`. | `e.target.value` | Reads the value of the element that triggered the event. |
+| **Event Target Access** | Use `event.target` to access the exact element that fired the event. | `console.log(e.target)` | Logs the specific element the user interacted with. |
+| **addEventListener()** | Attaches a function to run when an event occurs. | `btn.addEventListener("click", handler)` | Runs `handler` when the button is clicked. |
+| **removeEventListener()** | Removes a previously added event listener. | `btn.removeEventListener("click", handler)` | Stops the button from running `handler` on click. |
+| **Inline Event Handlers** | Old‑style event attributes in HTML; not recommended. | `<button onclick="alert('Hi')">` | Runs the alert when clicked, but mixes JS with HTML. |
+| **change Event** | Fires when input values change (select, checkbox, radio). | `select.addEventListener("change", e => ...)` | Runs code when the user picks a new option. |
+| **Event Bubbling** | Events bubble from the target up through parent elements. | `e.stopPropagation()` | Prevents the event from bubbling to parent elements. |
+| **Event Delegation** | Listen on a parent instead of many children. | `list.addEventListener("click", e => ...)` | Handles clicks on all list items using one listener. |
+| **DOMContentLoaded** | Fires when HTML is fully parsed. | `document.addEventListener("DOMContentLoaded", init)` | Runs `init` once the DOM is ready. |
+| **element.style** | Sets inline CSS styles directly on an element. | `el.style.color = "red"` | Changes the text color of the element to red. |
+| **classList.add()** | Adds a CSS class to an element. | `el.classList.add("active")` | Adds the `"active"` class to the element. |
+| **classList.remove()** | Removes a CSS class. | `el.classList.remove("hidden")` | Removes the `"hidden"` class so the element becomes visible. |
+| **classList.toggle()** | Adds the class if missing, removes it if present. | `menu.classList.toggle("open")` | Shows or hides the menu depending on its current state. |
+| **setTimeout()** | Runs code once after a delay. | `setTimeout(() => console.log("Hi"), 2000)` | Prints “Hi” after 2 seconds. |
+| **setInterval()** | Runs code repeatedly at a set interval. | `setInterval(() => console.log("tick"), 1000)` | Prints “tick” every second. |
+| **clearInterval()** | Stops a running interval. | `clearInterval(id)` | Stops the interval stored in `id`. |
+| **requestAnimationFrame()** | Runs animation steps synced to screen refresh. | `requestAnimationFrame(animate)` | Schedules the next animation frame smoothly. |
+| **Animation Loop Pattern** | Common pattern for smooth animations. | `function animate(){ update(); requestAnimationFrame(animate); }` | Repeats `update()` every frame for fluid animation. |
+
