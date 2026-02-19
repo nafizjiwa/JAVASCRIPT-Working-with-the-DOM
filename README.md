@@ -738,4 +738,15 @@ pauseBtn.addEventListener("click", () => animation.pause());
 
 ---
 
+|Category|	Key Concepts|	Code Example|
+|-------|--------|-----------|
+|Creation|	Literal vs. Constructor	|const re = /abc/; or new RegExp("abc");|
+|RegExp Methods|	.test(), .exec()	|/hi/.test("hi there"); // returns true|
+|String Methods|	.match(), .replace()	|"apple".replace(/p/g, "b"); // "abble"|
+|Flags|	i (Case), g (Global)	|"Hello".match(/h/gi); // ["H"]|
+|Anchors|	^ (Start), $ (End)	|/^A/.test("Apple"); // true (starts with A)|
+|Quantifiers|	+ (1+), * (0+)	|/lo+/.exec("hellooo"); // matches "looo"|
+|Classes|	\d (Digit), \w (Word)	|/\d+/.test("Age 25"); // true|
+|Logic|	`	|(OR),()` (Group)|
+
 
