@@ -717,3 +717,24 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **requestAnimationFrame()** | Runs animation steps synced to screen refresh. | `requestAnimationFrame(animate)` | Schedules the next animation frame smoothly. |
 | **Animation Loop Pattern** | Common pattern for smooth animations. | `function animate(){ update(); requestAnimationFrame(animate); }` | Repeats `update()` every frame for fluid animation. |
 
+
+# **Web Animations, Canvas, and Dialogs**
+
+| **Topic** | **Condensed Explanation** | **Example** | **Example Explanation** |
+|----------|----------------------------|-------------|--------------------------|
+| **Web Animations API** | Lets you create and control animations directly in JavaScript using keyframes + options. | ```js square.animate([{ transform:'translateX(0px)' },{ transform:'translateX(100px)' }],{ duration:2000, iterations:Infinity, direction:'alternate', easing:'ease-in-out' }); ``` | Animates the square left → right → left forever with smooth easing. |
+| **Animation Keyframes** | Define the visual changes during the animation. | `{ transform: 'translateX(100px)' }` | Moves the element 100px horizontally. |
+| **Animation Options** | Control timing, duration, loops, easing, direction. | `{ duration: 2000, iterations: Infinity }` | Makes the animation last 2 seconds and loop forever. |
+| **Canvas API** | Provides a 2D drawing surface for shapes, text, images, and animations. | `const ctx = canvas.getContext('2d')` | Gets the 2D drawing context used to draw on the canvas. |
+| **Canvas Drawing** | Use context methods to draw shapes and graphics. | `ctx.fillRect(1, 1, 150, 100)` | Draws a filled rectangle on the canvas. |
+| **Canvas Styling** | Set colors, gradients, patterns before drawing. | `ctx.fillStyle = 'crimson'` | Sets the fill color for shapes drawn afterward. |
+| **Dialog Element** | Built‑in HTML element for modal and non‑modal dialogs. | `<dialog id="my-modal"></dialog>` | Creates a dialog box that JS can open or close. |
+| **showModal()** | Opens a modal dialog that blocks page interaction. | `dialog.showModal()` | Opens the dialog and prevents clicking outside it. |
+| **show()** | Opens a non‑modal dialog. | `dialog.show()` | Opens the dialog while still allowing page interaction. |
+| **close()** | Closes a dialog. | `dialog.close()` | Hides the dialog and returns control to the page. |
+| **Open Modal Button** | Use events to trigger dialog actions. | `openBtn.addEventListener('click', () => dialog.showModal())` | Clicking the button opens the modal dialog. |
+| **Close Modal Button** | Attach event to close the dialog. | `closeBtn.addEventListener('click', () => dialog.close())` | Clicking the button closes the dialog. |
+
+---
+
+
