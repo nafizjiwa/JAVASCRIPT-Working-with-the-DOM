@@ -706,7 +706,7 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **change Event** | Fires when input values change (select, checkbox, radio). | `select.addEventListener("change", e => ...)` | Runs code when the user picks a new option. |
 | **Event Bubbling** | Events bubble from the target up through parent elements. | `e.stopPropagation()` | Prevents the event from bubbling to parent elements. |
 | **Event Delegation** | Listen on a parent instead of many children. | `list.addEventListener("click", e => ...)` | Handles clicks on all list items using one listener. |
-||takes advantage of this by attaching one listener to a parent instead of many listeners to individual child elements|
+||takes advantage of this by attaching one listener to a|parent instead of many listeners to individual child elements||
 | **DOMContentLoaded** | Fires when HTML is fully parsed. | `document.addEventListener("DOMContentLoaded", init)` | Runs `init` once the DOM is ready. |
 | **element.style** | Sets inline CSS styles directly on an element. | `el.style.color = "red"` | Changes the text color of the element to red. |
 | **classList.add()** | Adds a CSS class to an element. | `el.classList.add("active")` | Adds the `"active"` class to the element. |
