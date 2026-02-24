@@ -758,11 +758,14 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **MP4 Format** | figital audio + video MIME (`audio/mp4` or `video/mp4`) | ```<video src="movie.mp4"></video>``` |
 | **Codecs** | algorithm to convert audio/video between analogue and digital | ```<source src="movie.mp4" type='video/mp4; codecs="avc1.42E01E"'>``` |
 | **HTMLMediaElement API** | Controls audio/video behaviour of (play, pause, etc.) | ```gives access to basic methods and to events like waiting, ended, canplay, canplaythrough``` |
-| **Media Capture & Streams API** | Captures audio/video from user devices by creating MediaStream object| ```navigator.mediaDevices.getUserMedia({audio:true, video:true}).then(stream => video.srcObject = stream);``` |
+| What canPlayType() method help you do||Determine if a browser is likely to be able to play your specific audio format.| 
+| What HTMLMediaElement event fires when playback is paused due to data buffering?||waiting| 
+| Which Web Audio API interface is used to represent an audio-processing graph?||AudioContext|
+| When is the ended event fired?||When the end of the media has been reached.|
+| **Media Capture & Streams API** | Captures audio/video from user devices. It creates MediaStream object| ```navigator.mediaDevices.getUserMedia({audio:true, video:true}).then(stream => video.srcObject = stream);``` |
 | **Screen Capture API** | Records user’s screen, call object navigator and mediaDevices| ```navigator.mediaDevices.getDisplayMedia().then(stream => video.srcObject = stream);``` |
 | **MediaStream Recording API** | Records a MediaStream works with MediaStreams API | ```const recorder = new MediaRecorder(stream); recorder.start();``` |
 | **Media Source Extensions API** | Pass webcam Feeds to video element with srcObject| ```video.srcObject = webcamStream;``` |
 | **Web Audio API** | Audio processing on web. Objects: AudioBuffer & AudioContext| ```const ctx = new AudioContext(); const src = ctx.createBufferSource(); src.connect(ctx.destination);``` |
 ---
-
 
