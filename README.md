@@ -742,24 +742,27 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **Topic** | **Definition / Purpose** | **Example** |
 |----------|---------------------------|-------------|
 | **Audio() Constructor** | Creates an `HTMLAudioElement` programmatically | ```const sound = new Audio("song.mp3"); sound.play();``` |
+| **Audio() Methods** | once created Use to control | const audio = document.getElementById("audio"); |
 | **play()** | Starts audio/video playback | ```audio.play();``` |
 | **pause()** | Pauses playback but keeps current position | ```audio.pause();``` |
 | **addTextTrack()** | Adds captions/subtitles to video | ```const track = video.addTextTrack("captions","English","en");``` |
 | **fastSeek()** | Jumps to a specific time in media | ```audio.fastSeek(30);``` |
-| **currentTime** | Gets/sets playback position | ```audio.currentTime = 10;``` |
+| **Audio() constructor Properties** | |  |
+| **currentTime** | Gets/sets playback position/time | ```audio.currentTime = 10;``` |
 | **loop** | Automatically restarts audio when finished | ```audio.loop = true;``` |
 | **muted** | Silences audio output | ```audio.muted = true;``` |
-| **MIME Type** | Tells browser what file type is being loaded | ```<source src="song.mp3" type="audio/mpeg">``` |
-| **source Element** | Provides multiple formats for browser compatibility | ```<video><source src="video.mp4" type="video/mp4"><source src="video.webm" type="video/webm"></video>``` |
-| **MP3 Format** | Most supported audio format (`audio/mpeg`) | ```<audio src="track.mp3"></audio>``` |
-| **MP4 Format** | Container for audio + video (`audio/mp4` or `video/mp4`) | ```<video src="movie.mp4"></video>``` |
-| **Codecs** | Specifies encoding used inside media file | ```<source src="movie.mp4" type='video/mp4; codecs="avc1.42E01E"'>``` |
-| **HTMLMediaElement API** | Controls audio/video elements (play, pause, etc.) | ```if (audio.canPlayType("audio/mpeg")) audio.play();``` |
-| **Media Capture & Streams API** | Captures audio/video from user devices | ```navigator.mediaDevices.getUserMedia({audio:true, video:true}).then(stream => video.srcObject = stream);``` |
-| **Screen Capture API** | Captures user’s screen | ```navigator.mediaDevices.getDisplayMedia().then(stream => video.srcObject = stream);``` |
-| **MediaStream Recording API** | Records a MediaStream | ```const recorder = new MediaRecorder(stream); recorder.start();``` |
-| **Media Source Extensions API** | Feeds live media data into a video element | ```video.srcObject = webcamStream;``` |
-| **Web Audio API** | Low‑level audio processing and effects | ```const ctx = new AudioContext(); const src = ctx.createBufferSource(); src.connect(ctx.destination);``` |
+| **Audio() & Video Formats** | |  |
+| **MIME Type** Multipurpose Internet Mail Extension| Tells browser type of file being loaded | ```<source src="song.mp3" type="audio/mpeg">``` |
+| **source Element** | states type and src to allow browser to choose format | ```<video><source src="video.mp4" type="video/mp4"><source src="video.webm" type="video/webm"></video>``` |
+| **MP3 Format** | Compressed digital audio format (MIME type`audio/mpeg`) | ```<audio src="track.mp3"></audio>``` |
+| **MP4 Format** | figital audio + video MIME (`audio/mp4` or `video/mp4`) | ```<video src="movie.mp4"></video>``` |
+| **Codecs** | algorithm to convert audio/video between analogue and digital | ```<source src="movie.mp4" type='video/mp4; codecs="avc1.42E01E"'>``` |
+| **HTMLMediaElement API** | Controls audio/video behaviour of (play, pause, etc.) | ```gives access to basic methods and to events like waiting, ended, canplay, canplaythrough``` |
+| **Media Capture & Streams API** | Captures audio/video from user devices by creating MediaStream object| ```navigator.mediaDevices.getUserMedia({audio:true, video:true}).then(stream => video.srcObject = stream);``` |
+| **Screen Capture API** | Records user’s screen, call object navigator and mediaDevices| ```navigator.mediaDevices.getDisplayMedia().then(stream => video.srcObject = stream);``` |
+| **MediaStream Recording API** | Records a MediaStream works with MediaStreams API | ```const recorder = new MediaRecorder(stream); recorder.start();``` |
+| **Media Source Extensions API** | Pass webcam Feeds to video element with srcObject| ```video.srcObject = webcamStream;``` |
+| **Web Audio API** | Audio processing on web. Objects: AudioBuffer & AudioContext| ```const ctx = new AudioContext(); const src = ctx.createBufferSource(); src.connect(ctx.destination);``` |
 ---
 
 
