@@ -673,7 +673,6 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **Check if a class exists** | `classList.contains()` | `div.classList.contains("error")` |
 | **Add an event listener** | `addEventListener()` | `li.addEventListener("click", () => { ... })` |
 | **Set inline styles** | Modify `.style` | `p.style.color = "red"` |
-
 ---
 
 # **DOM Manipulation, Web APIs + Event Handling Table**
@@ -738,15 +737,29 @@ pauseBtn.addEventListener("click", () => animation.pause());
 
 ---
 
-|Category|	Key Concepts|	Code Example|
-|-------|--------|-----------|
-|Creation|	Literal vs. Constructor	|const re = /abc/; or new RegExp("abc");|
-|RegExp Methods|	.test(), .exec()	|/hi/.test("hi there"); // returns true|
-|String Methods|	.match(), .replace()	|"apple".replace(/p/g, "b"); // "abble"|
-|Flags|	i (Case), g (Global)	|"Hello".match(/h/gi); // ["H"]|
-|Anchors|	^ (Start), $ (End)	|/^A/.test("Apple"); // true (starts with A)|
-|Quantifiers|	+ (1+), * (0+)	|/lo+/.exec("hellooo"); // matches "looo"|
-|Classes|	\d (Digit), \w (Word)	|/\d+/.test("Age 25"); // true|
-|Logic|	`	|(OR),()` (Group)|
+# 🎧 **JavaScript Audio & Video — Examples**
+
+| **Topic** | **Definition / Purpose** | **Example** |
+|----------|---------------------------|-------------|
+| **Audio() Constructor** | Creates an `HTMLAudioElement` programmatically | ```const sound = new Audio("song.mp3"); sound.play();``` |
+| **play()** | Starts audio/video playback | ```audio.play();``` |
+| **pause()** | Pauses playback but keeps current position | ```audio.pause();``` |
+| **addTextTrack()** | Adds captions/subtitles to video | ```const track = video.addTextTrack("captions","English","en");``` |
+| **fastSeek()** | Jumps to a specific time in media | ```audio.fastSeek(30);``` |
+| **currentTime** | Gets/sets playback position | ```audio.currentTime = 10;``` |
+| **loop** | Automatically restarts audio when finished | ```audio.loop = true;``` |
+| **muted** | Silences audio output | ```audio.muted = true;``` |
+| **MIME Type** | Tells browser what file type is being loaded | ```<source src="song.mp3" type="audio/mpeg">``` |
+| **source Element** | Provides multiple formats for browser compatibility | ```<video><source src="video.mp4" type="video/mp4"><source src="video.webm" type="video/webm"></video>``` |
+| **MP3 Format** | Most supported audio format (`audio/mpeg`) | ```<audio src="track.mp3"></audio>``` |
+| **MP4 Format** | Container for audio + video (`audio/mp4` or `video/mp4`) | ```<video src="movie.mp4"></video>``` |
+| **Codecs** | Specifies encoding used inside media file | ```<source src="movie.mp4" type='video/mp4; codecs="avc1.42E01E"'>``` |
+| **HTMLMediaElement API** | Controls audio/video elements (play, pause, etc.) | ```if (audio.canPlayType("audio/mpeg")) audio.play();``` |
+| **Media Capture & Streams API** | Captures audio/video from user devices | ```navigator.mediaDevices.getUserMedia({audio:true, video:true}).then(stream => video.srcObject = stream);``` |
+| **Screen Capture API** | Captures user’s screen | ```navigator.mediaDevices.getDisplayMedia().then(stream => video.srcObject = stream);``` |
+| **MediaStream Recording API** | Records a MediaStream | ```const recorder = new MediaRecorder(stream); recorder.start();``` |
+| **Media Source Extensions API** | Feeds live media data into a video element | ```video.srcObject = webcamStream;``` |
+| **Web Audio API** | Low‑level audio processing and effects | ```const ctx = new AudioContext(); const src = ctx.createBufferSource(); src.connect(ctx.destination);``` |
+---
 
 
