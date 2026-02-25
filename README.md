@@ -734,10 +734,9 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **close()** | Closes a dialog. | `dialog.close()` | Hides the dialog and returns control to the page. |
 | **Open Modal Button** | Use events to trigger dialog actions. | `openBtn.addEventListener('click', () => dialog.showModal())` | Clicking the button opens the modal dialog. |
 | **Close Modal Button** | Attach event to close the dialog. | `closeBtn.addEventListener('click', () => dialog.close())` | Clicking the button closes the dialog. |
-
 ---
 
-# 🎧 **JavaScript Audio & Video — Examples**
+# 🎧 **JavaScript Audio & Video **
 
 | **Topic** | **Definition / Purpose** | **Example** |
 |----------|---------------------------|-------------|
@@ -768,4 +767,187 @@ pauseBtn.addEventListener("click", () => animation.pause());
 | **Media Source Extensions API** | Pass webcam Feeds to video element with srcObject| ```video.srcObject = webcamStream;``` |
 | **Web Audio API** | Audio processing on web. Objects: AudioBuffer & AudioContext| ```const ctx = new AudioContext(); const src = ctx.createBufferSource(); src.connect(ctx.destination);``` |
 ---
+
+# 🔊 **Audio Constructor & HTMLMediaElement — Master Table**
+
+## **Audio Constructor**
+| Topic | Details |
+|-------|---------|
+| **Audio() Constructor** | A constructor that creates an `HTMLAudioElement` when used with `new` |
+| Purpose | Play audio or insert into DOM for user controls |
+| Argument | Optional URL to an audio file |
+| Example | `const audio = new Audio("sound.mp3")` |
+| Change source later | `audio.src = "newfile.mp3"` |
+---
+
+## 🎵 **Common Audio Methods**
+| Category | Method | Description |
+|----------|--------|-------------|
+| Playback | `play()` | Starts audio playback |
+| Playback | `pause()` | Pauses playback but keeps position |
+| Stopping workaround | *(no `stop()`)* | Use `pause()` + `audio.currentTime = 0` |
+| Format support | `canPlayType()` | Returns if browser can likely play a format |
+---
+
+## 🎧🎥 **MIME Types Overview**
+| Topic | Details |
+|-------|---------|
+| Definition | Identifiers telling software how to handle a file |
+| Purpose | Helps browsers know how to embed/play files |
+| Examples | `text/html`, `application/json`, `application/microsoft-executable` |
+
+---
+
+## **Common Audio & Video Formats**
+| Format | Type | Notes |
+|--------|------|-------|
+| MP3 | `audio/mpeg` | Most common audio |
+| MP4 | `audio/mp4`, `video/mp4` | Audio or audio+video |
+| WAV | audio | Uncompressed waveform |
+| OGG | audio/video | Open format |
+| MOV | video | Apple format |
+| WMV | video | Windows Media Video |
+| WebM | video | Web‑optimized |
+| MKV | video | Supports many codecs |
+
+---
+
+## 🎛️ **Why Format Differences Matter**
+| Reason | Explanation |
+|--------|-------------|
+| Compatibility | Different browsers/devices support different formats |
+| User experience | Ensures smooth playback |
+
+---
+
+## **Using `<source>` for Compatibility**
+| Element | Purpose |
+|---------|----------|
+| `<audio>` / `<video>` | Can contain multiple `<source>` tags |
+| `<source>` attributes | File URL + MIME type |
+| Browser behavior | Automatically picks the best supported format |
+
+---
+
+## 🎚️ **Codecs**
+| Topic | Details |
+|-------|---------|
+| Definition | Encoder/decoder algorithm for audio/video |
+| Purpose | Compress, store, and play efficiently |
+| MIME syntax | `media/type; codecs="codecName"` |
+| Examples | `video/webm; codecs="vp8, vorbis"`<br>`video/mp4; codecs="avc1.4d002a"` |
+
+---
+
+## 🎛️ **Why Codecs Matter**
+| Factor | Impact |
+|--------|--------|
+| File size | Compression efficiency |
+| Quality | Depends on codec |
+| Compatibility | Browser/device support varies |
+| Browser use | Browser checks codec info before playing |
+
+---
+
+## 🧩 **Where Codecs Are Used**
+| Location | Purpose |
+|----------|----------|
+| `<source>` type attribute | Helps browser choose playable media |
+| `MediaSource.isTypeSupported()` | Returns `true`/`false` for MIME+codec support |
+
+---
+
+## 🎥 **HTMLMediaElement API**
+| Topic | Details |
+|-------|---------|
+| What it is | API controlling audio/video elements |
+| Extends | `HTMLElement` |
+
+### Common Methods
+| Method | Description |
+|--------|-------------|
+| `play()` | Start playback |
+| `pause()` | Pause playback |
+| `addTextTrack()` | Add subtitles/captions |
+| `fastSeek(time)` | Jump quickly to a time |
+
+### Media Events
+| Event | Meaning |
+|--------|---------|
+| `play` | Playback started |
+| `pause` | Playback paused |
+| `ended` | Media finished |
+| `waiting` | Buffering |
+| `canplay` | Enough data to start playing |
+| `canplaythrough` | Browser expects no buffering |
+
+---
+
+## 📸 **MediaStream API**
+| Topic | Details |
+|-------|---------|
+| Purpose | Capture audio/video from camera/mic |
+| Part of | Media Capture and Streams API |
+
+### Creating a MediaStream
+| Method | Description |
+|--------|-------------|
+| `new MediaStream()` | Creates empty stream (no hardware) |
+| `navigator.mediaDevices.getUserMedia()` | Requests hardware access, returns Promise |
+
+### Constraints Object
+| Property | Meaning |
+|----------|---------|
+| `audio: true/false` | Request audio |
+| `video: true/false or object` | Request video or specify resolution |
+
+---
+
+## 📹 **High‑Resolution Video Example**
+| Setting | Values |
+|---------|--------|
+| Width | min: 1280, ideal: 1920, max: 3840 |
+| Height | min: 720, ideal: 1080, max: 2160 |
+
+Code:
+```js
+navigator.mediaDevices.getUserMedia({
+  audio: true,
+  video: {
+    width: { min: 1280, ideal: 1920, max: 3840 },
+    height: { min: 720, ideal: 1080, max: 2160 }
+  }
+});
+```
+
+---
+
+## 🎥 **Working With a Stream**
+| Step | Code |
+|------|------|
+| Select video element | `const video = document.querySelector("video")` |
+| Get stream | `const stream = await navigator.mediaDevices.getUserMedia({ video: true })` |
+| Attach stream | `video.srcObject = stream` |
+| Play | `await video.play()` |
+
+---
+
+## 🧰 **Other Video & Audio APIs**
+| API | Purpose |
+|------|---------|
+| Screen Capture API (`getDisplayMedia()`) | Capture user’s screen |
+| MediaStream Recording API | Record audio/video |
+| Media Source Extensions (MSE) | Feed streams into media elements |
+| Web Audio API | Process, filter, and manipulate sound |
+
+---
+
+## 📺 **Screen Capture Example**
+```js
+const stream = await navigator.mediaDevices.getDisplayMedia({
+  video: true,
+  audio: true
+});
+```
+
 
